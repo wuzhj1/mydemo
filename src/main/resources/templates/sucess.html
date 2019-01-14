@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <title>Title</title>
+</head>
+<body>
+    <h1 align="center" >标题</h1>
+    <table align="center" border="1" >
+        <tr>
+            <th>pk_card</th>
+            <th>card_code</th>
+            <th>asset_code</th>
+            <th>asset_name</th>
+        </tr>
+        <tr th:each="card : ${cards}" >
+            <td th:text="${card.getPk_card()}"></td>
+            <td th:text="${card.getCard_code()}"></td>
+            <td th:text="${card.getAsset_code()}"></td>
+            <td th:text="${card.getAsset_name()}"></td>
+        </tr>
+    </table>
+
+    <div th:text="${name}" ></div>
+    <div th:text="${originName}"></div>
+    <div th:text="${dest}"></div>
+</body>
+</html>

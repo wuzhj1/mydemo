@@ -1,0 +1,14 @@
+
+spring:
+  datasource:
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    url: jdbc:oracle:thin:@20.10.130.153:1521:orcl
+    username: nc65am
+    password: 1
+  servlet:
+    multipart:
+      max-file-size: 1000MB
+      max-request-size: 1000MB
+
+mybatis:
+  type-aliases-package: com.example.mydemo.domain

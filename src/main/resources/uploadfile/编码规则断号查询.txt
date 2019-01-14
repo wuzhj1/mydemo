@@ -1,0 +1,16 @@
+--断号表、最大号查询方法（替换SQL语句中文为相应的值）
+
+--备份
+create table pub_bcr_return_20181219 as select * from pub_bcr_return;
+1、查询组织及集团主键 pk_org和pk_group
+select pk_org,pk_group,code ,name from org_orgs where code = '组织编号' and name = '组织名称'
+2、查询编码规则主键pk_billcodebase
+select pk_group , pk_billcodebase from pub_bcr_rulebase where nbcrcode = 'card_code' and pk_group = '集团主键'
+3、查询最大号
+select * from pub_bcr_sn where pk_billcodebase = '编码规则主键' and markstr = '组织主键'
+4、查询断号表
+select * from pub_bcr_return where pk_billcodebase = '编码规则主键' and markstr = '组织主键'
+
+
+删除断号
+delete from pub_bcr_return where pk_billcodebase = '编码规则主键' and markstr = '组织主键' and rtnsn = '要删除编号'
